@@ -1,0 +1,23 @@
+{
+  "name": "comparitube",
+  "version": "1.0.0",
+  "description": "A YouTube video creator comparison app",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": "node-sass -w scss/ -o src/css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RAMTeam/compariTube.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RAMTeam/compariTube/issues"
+  },
+  "homepage": "https://github.com/RAMTeam/compariTube#readme"
+}

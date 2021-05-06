@@ -5,7 +5,8 @@
 
 body {
   background: #2a2e37;
-  color: #f2f2f2; }
+  color: #f2f2f2;
+  font-family: "Montserrat", sans-serif; }
 
 .container {
   width: 100%;
@@ -88,9 +89,37 @@ img {
     border-radius: 15px;
     width: 450px;
     min-height: 300px; }
+  .column-container .col-mid {
+    position: relative;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    background-color: #72bed8; }
+    .column-container .col-mid .winning-stats-heading {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      font-size: 36px;
+      text-align: center; }
+    .column-container .col-mid .catagory .cat-item-title {
+      background: #202628;
+      margin: 1rem 0 10px 0;
+      margin: 1rem 0 10px 0;
+      text-align: center;
+      width: 250px;
+      font-size: 24px;
+      color: #f2f2f2;
+      padding: 15px; }
+    .column-container .col-mid .catagory .cat-item-winner {
+      font-size: 18px; }
   .column-container .profile-item {
     margin: 20px;
-    font-size: 18px; }
+    font-size: 18px;
+    font-family: "Kurale", serif; }
     .column-container .profile-item .profile-heading {
       padding: 3px;
       font-size: 24px;
@@ -112,3 +141,23 @@ img {
     transition: all 0.3s; }
     .column-container .compare-btn:hover {
       transform: scale(1.1); }
+  .column-container .winner-looser {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold; }
+    .column-container .winner-looser .winner {
+      position: relative;
+      margin-top: 130px;
+      width: 120px;
+      height: 30px;
+      border-radius: 15px;
+      margin: 5px;
+      background-color: #09c9b2; }
+    .column-container .winner-looser .looser {
+      width: 120px;
+      height: 30px;
+      border-radius: 15px;
+      margin: 5px;
+      background-color: #fe9800; }

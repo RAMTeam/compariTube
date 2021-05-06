@@ -9,6 +9,7 @@
 body {
   background: $mainBackground-color;
   color: $primary-font-color;
+  font-family: $montserrat-semi;
 }
 .container {
   width: 100%;
@@ -101,9 +102,46 @@ img {
     width: 450px;
     min-height: 300px;
   }
+  .col-mid {
+    position: relative;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    // visibility: hidden;
+    text-align: center;
+    background-color: #72bed8;
+    .winning-stats-heading {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      font-size: 36px;
+      text-align: center;
+    }
+    .catagory {
+      .cat-item-title {
+        background: $secondary-background-color;
+        margin: 1rem 0 10px 0;
+        margin: 1rem 0 10px 0;
+        text-align: center;
+        width: 250px;
+        font-size: 24px;
+        color: $primary-font-color;
+        padding: 15px;
+      }
+      .cat-item-winner {
+        font-size: 18px;
+      }
+      // background: #202628;
+    }
+  }
+
   .profile-item {
     margin: 20px;
     font-size: $primary-font-size;
+    font-family: $kurale;
     .profile-heading {
       padding: 3px;
       font-size: $subheading-font-size;
@@ -129,6 +167,29 @@ img {
     transition: all 0.3s;
     &:hover {
       transform: scale(1.1);
+    }
+  }
+  .winner-looser {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    .winner {
+      position: relative;
+      margin-top: 130px;
+      width: 120px;
+      height: 30px;
+      border-radius: 15px;
+      margin: 5px;
+      background-color: #09c9b2;
+    }
+    .looser {
+      width: 120px;
+      height: 30px;
+      border-radius: 15px;
+      margin: 5px;
+      background-color: #fe9800;
     }
   }
 }

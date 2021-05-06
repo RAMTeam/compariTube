@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kurale&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/05e9fd9dda.js"
       crossorigin="anonymous"
@@ -14,48 +24,54 @@
   <body>
     <div class="container">
       <h2 class="heading">CompariTube</h2>
-      <div class="searchBars">
+      <div class="searchBars search-column">
         <div class="search">
-          <input type="search" class="search-box" />
-          <span class="search-button">
-            <i class="fas fa-search fa-2x"></i>
-          </span>
+          <form id="first-search-form">
+            <input type="text" class="search-box" />
+            <button type="submit" class="search-button">
+              <i class="fas fa-search fa-2x"></i>
+            </button>
+          </form>
         </div>
         <div class="search">
-          <input type="search" class="search-box" />
-          <span class="search-button">
-            <i class="fas fa-search fa-2x"></i>
-          </span>
+          <form id="second-search-form">
+            <input type="text" class="search-box" />
+            <button type="submit" class="search-button">
+              <i class="fas fa-search fa-2x"></i>
+            </button>
+          </form>
         </div>
       </div>
       <div class="column-container">
-        <div class="col-left col">
-          <div class="profile-thumbnail">
-            <img src="/assets/brivel-bariki-CrZT7ZYdWc4-unsplash.jpg" alt="" />
-          </div>
-          <ul id="left-profile-att-selector" class="profile-attributes">
-            <li class="profile-item">
-              <span class="profile-heading">Name:</span> The Coding Train
-            </li>
-          </ul>
+        <div class="col-left col compare-column">
+          <div class="profile-thumbnail"></div>
+          <ul id="first-search-ul" class="profile-attributes"></ul>
         </div>
-        <div class="col-mid col"></div>
-        <div class="col-right col">
-          <div class="profile-thumbnail">
-            <img src="/assets/brivel-bariki-CrZT7ZYdWc4-unsplash.jpg" alt="" />
+        <div class="col-mid col">
+          <h2 class="winning-stats-heading">Winning Stats</h2>
+          <div class="catagory">
+            <h4 class="cat-item-title">Subscriber Count</h4>
+            <p class="cat-item-winner">The Coding Train</p>
           </div>
-          <ul id="right-profile-att-selector" class="profile-attributes">
-            <li class="profile-item">
-              <span class="profile-heading">Name:</span> The Coding Train
-            </li>
-          </ul>
+          <div class="catagory">
+            <h4 class="cat-item-title">View Count</h4>
+            <p class="cat-item-winner">Traversy Media</p>
+          </div>
+          <div class="catagory">
+            <h4 class="cat-item-title">Video Count</h4>
+            <p class="cat-item-winner">Traversy Media</p>
+          </div>
         </div>
         <div class="comparison-btn-container">
           <button class="compare-btn">Compare</button>
         </div>
+        <div class="col-right col compare-column">
+          <div class="profile-thumbnail"></div>
+          <ul id="second-search-ul" class="profile-attributes"></ul>
+        </div>
       </div>
     </div>
 
-    <script src=""></script>
+    <script src="index.js"></script>
   </body>
 </html>

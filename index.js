@@ -50,8 +50,9 @@ function displaySearchResult(searchList,targetUl){
     //console.log(searchList)
     targetUl.textContent=""
     for(item of searchList){
-        let li=document.createElement('li')
+        let li = document.createElement('li')
         li.data=item.snippet.channelId
+        
 
         let img=document.createElement('img')
         img.src=item.snippet.thumbnails.default.url
@@ -121,32 +122,13 @@ function displayChannelDetails(data,targetUl){
     targetUl.appendChild(li)
 }
 
+
 CompareButton.addEventListener('click',getCompare)
 
 function getCompare(){
     compareResult.textContent=""
  if(firstSearchUl.dataset.itemChosen && secondSearchUl.dataset.itemChosen) {
      displayCompare()
-//     let firstVidCount=firstSearchUl.querySelector(".vidCount").textContent
-//     let secondVidCount=secondSearchUl.querySelector(".vidCount").textContent
-//     console.log(firstSearchUl.querySelector(".channel-name").textContent)
-
-//     let nameLable=document.createElement('div')
-//     compareResult.appendChild(nameLable)
-//     nameLable.textContent="Video count"
-
-//     let channelName=document.createElement('p')
-//     compareResult.appendChild(channelName)
-
-//     if(parseInt(firstVidCount)>parseInt(secondVidCount)){
-//         channelName.textContent=firstSearchUl.querySelector(".channel-name").textContent
-//     }
-//     else if(parseInt(firstVidCount)<parseInt(secondVidCount)){
-//         compareResult.textContent=secondSearchUl.querySelector(".channel-name").textContent
-//     }
-//     else{ //equal videos count
-//         compareResult.textContent="Equal"
-//     }
   }  
  else{
     compareResult.textContent="Please, Choose two channels from both sides"
@@ -217,4 +199,3 @@ function displayCompare(){
         winnerName3.textContent="Equal"
     }
 }
-    

@@ -1,4 +1,4 @@
-let key="AIzaSyCCPAkF6jdSihNadlIKbLgYdU-47G0Pc2o"
+let key=""
 let firstSearchUl=document.getElementById("first-search-ul")
 let secondSearchUl=document.getElementById("second-search-ul")
 let firstForm=document.getElementById("first-search-form")

@@ -1,0 +1,15 @@
+.container {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+}
+.search-column{
+min-width: 300px;
+min-height: 600px;
+background-color: grey;
+}
+.compare-column{
+min-width: 150px;
+max-width:200px;
+background-color: rgb(230, 199, 233);
+}

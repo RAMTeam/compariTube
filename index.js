@@ -1,4 +1,4 @@
-let key=""
+let key="AIzaSyCCPAkF6jdSihNadlIKbLgYdU-47G0Pc2o"
 let firstSearchUl=document.getElementById("first-search-ul")
 let secondSearchUl=document.getElementById("second-search-ul")
 let firstForm=document.getElementById("first-search-form")
@@ -38,8 +38,9 @@ function displaySearchResult(searchList,targetUl){
     console.log(searchList)
     targetUl.textContent=""
     for(item of searchList){
-        let li=document.createElement('li')
+        let li = document.createElement('li')
         li.data=item.snippet.channelId
+        
 
         let img=document.createElement('img')
         img.src=item.snippet.thumbnails.default.url

@@ -24,30 +24,28 @@
   <body>
     <div class="container">
       <h2 class="heading">CompariTube</h2>
-      <div class="searchBars">
+      <div class="searchBars search-column">
         <div class="search">
-          <input type="search" class="search-box" />
-          <span class="search-button">
-            <i class="fas fa-search fa-2x"></i>
-          </span>
+          <form id="first-search-form">
+            <input type="text" class="search-box" />
+            <button type="submit" class="search-button">
+              <i class="fas fa-search fa-2x"></i>
+            </button>
+          </form>
         </div>
         <div class="search">
-          <input type="search" class="search-box" />
-          <span class="search-button">
-            <i class="fas fa-search fa-2x"></i>
-          </span>
+          <form id="second-search-form">
+            <input type="text" class="search-box" />
+            <button type="submit" class="search-button">
+              <i class="fas fa-search fa-2x"></i>
+            </button>
+          </form>
         </div>
       </div>
       <div class="column-container">
-        <div class="col-left col">
-          <div class="profile-thumbnail">
-            <img src="/assets/brivel-bariki-CrZT7ZYdWc4-unsplash.jpg" alt="" />
-          </div>
-          <ul id="left-profile-att-selector" class="profile-attributes">
-            <li class="profile-item">
-              <span class="profile-heading">Name:</span> The Coding Train
-            </li>
-          </ul>
+        <div class="col-left col compare-column">
+          <div class="profile-thumbnail"></div>
+          <ul id="first-search-ul" class="profile-attributes"></ul>
         </div>
         <div class="col-mid col">
           <h2 class="winning-stats-heading">Winning Stats</h2>
@@ -67,19 +65,13 @@
         <div class="comparison-btn-container">
           <button class="compare-btn">Compare</button>
         </div>
-        <div class="col-right col">
-          <div class="profile-thumbnail">
-            <img src="/assets/brivel-bariki-CrZT7ZYdWc4-unsplash.jpg" alt="" />
-          </div>
-          <ul id="right-profile-att-selector" class="profile-attributes">
-            <li class="profile-item">
-              <span class="profile-heading">Name:</span> The Coding Train
-            </li>
-          </ul>
+        <div class="col-right col compare-column">
+          <div class="profile-thumbnail"></div>
+          <ul id="second-search-ul" class="profile-attributes"></ul>
         </div>
       </div>
     </div>
 
-    <script src=""></script>
+    <script src="index.js"></script>
   </body>
 </html>

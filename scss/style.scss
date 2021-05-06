@@ -63,13 +63,14 @@ img {
 .search-button {
   width: 100px;
   height: 60px;
+  background-color: $secondary-background-color;
   display: block;
   border: 1px solid $accent-color;
   border-radius: 15px;
   position: absolute;
   right: 0;
   top: 0;
-  padding: 10px;
+  padding: 12px;
   cursor: pointer;
 
   transition: all 0.5s ease;

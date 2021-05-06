@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "sass": "node-sass -w scss/ -o src/css/ --recursive"
+    "sass": "node-sass -w scss/ -o css/ --recursive"
   },
   "repository": {
     "type": "git",

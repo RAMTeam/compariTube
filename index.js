@@ -1,4 +1,4 @@
-let key="AIzaSyCvRmFnKCPzyLQitWxWmwawyMlHwIXLS1A"
+let key=""
 let firstSearchUl=document.querySelector("#first-search-ul")
 let secondSearchUl=document.querySelector("#second-search-ul")
 let CompareDiv=document.getElementById("compare-column")

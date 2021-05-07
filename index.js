@@ -1,4 +1,4 @@
-let key=""
+let key=" AIzaSyD2hZ3vbnDeTmf6gG8n-jlIRv0tQqCyCtE"
 let firstSearchUl=document.querySelector("#first-search-ul")
 let secondSearchUl=document.querySelector("#second-search-ul")
 let CompareDiv=document.getElementById("compare-column")
@@ -8,6 +8,7 @@ let secondForm= document.getElementById("second-search-form")
 let compareResult = document.getElementById("compare-result")
 secondSearchUl.dataset.itemChosen=false
 firstSearchUl.dataset.itemChosen=false
+let categoriesTags=compareResult.querySelectorAll('.category')
 
 //let channel1   //channel1 json
 //let channel2   //channel2 json
@@ -17,6 +18,13 @@ firstSearchUl.dataset.itemChosen=false
 //     button.textContent="Compare"
 //     CompareDiv.
 // }
+function emptyCategoryTags(){
+    let warning=compareResult.querySelector(".warning")
+    warning.textContent=""
+    for(item of categoriesTags){
+        item.textContent=""
+    }
+}
 CompareDiv.style.visibility = "hidden"
 firstForm.addEventListener("submit",function(e){getSearchResult(e,firstSearchUl)})
 secondForm.addEventListener("submit",function(e){getSearchResult(e,secondSearchUl)})
@@ -25,6 +33,7 @@ function getSearchResult(event,targetUl){
     targetUl.dataset.itemChosen=false
  
     CompareDiv.style.visibility = "hidden"
+    emptyCategoryTags()
     event.preventDefault(); 
     searchBar=event.target.querySelector('input[type=text]')
     if(searchBar.value!=''){
@@ -146,17 +155,19 @@ function displayChannelDetails(data,targetUl){
 CompareButton.addEventListener('click',getCompare)
 
 function getCompare(){
-    //compareResult.innerText = ""
+    
     CompareDiv.style.visibility = "visible"
     console.log(firstSearchUl.dataset.itemChosen)
     console.log(secondSearchUl.dataset.itemChosen)
+    emptyCategoryTags()
     if(firstSearchUl.dataset.itemChosen!="false" && secondSearchUl.dataset.itemChosen!="false") {
+        
         displayCompare()
     }  
     else{
-        let warning=document.createElement("p")
+        
+        let warning=compareResult.querySelector(".warning")
         warning.textContent="Please, Choose two channels from both sides"
-        compareResult.appendChild(warning)
         warning.classList.add("warning")
     }
 }
@@ -164,12 +175,13 @@ function getCompare(){
 function displayCompare(){
     CompareDiv.style.visibility = "visible"
     CompareButton.style.display = "none"
+    //compareResult.textContent=""
     console.log(typeof firstSearchUl.dataset.itemChosen)
         let channel1=JSON.parse(firstSearchUl.dataset.channel)
         let channel2=JSON.parse(secondSearchUl.dataset.channel)
         console.log("heeeeey")
 
-    let categoriesTags=compareResult.querySelectorAll('.category')
+    
 
     let header=document.createElement('h2')
     header.textContent="winning stats"

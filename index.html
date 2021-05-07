@@ -24,8 +24,10 @@
   <body>
     <div class="container">
       <h2 class="heading">CompariTube</h2>
-      <div class="searchBars search-column">
-        <div class="search">
+      <!-- Search Bars -->
+      <div class="searchBars">
+        <!-- First Search Bar -->
+        <div class="search search-column">
           <form id="first-search-form">
             <input type="text" class="search-box" />
             <button type="submit" class="search-button">
@@ -33,7 +35,9 @@
             </button>
           </form>
         </div>
-        <div class="search">
+
+        <!-- Second Search Bar -->
+        <div class="search search-column">
           <form id="second-search-form">
             <input type="text" class="search-box" />
             <button type="submit" class="search-button">
@@ -42,30 +46,30 @@
           </form>
         </div>
       </div>
+
+      <!-- Left Column -->
       <div class="column-container">
-        <div class="col-left col compare-column">
+        <div class="col-left col search-column">
           <div class="profile-thumbnail"></div>
           <ul id="first-search-ul" class="profile-attributes"></ul>
         </div>
-        <div class="col-mid col">
+
+        <!-- Middle column -->
+        <div class="col-mid col compare-column" id="compare-column">
           <h2 class="winning-stats-heading">Winning Stats</h2>
-          <div class="catagory">
-            <h4 class="cat-item-title">Subscriber Count</h4>
-            <p class="cat-item-winner">The Coding Train</p>
-          </div>
-          <div class="catagory">
-            <h4 class="cat-item-title">View Count</h4>
-            <p class="cat-item-winner">Traversy Media</p>
-          </div>
-          <div class="catagory">
-            <h4 class="cat-item-title">Video Count</h4>
-            <p class="cat-item-winner">Traversy Media</p>
+          <div id="compare-result">
+            <div class="category"></div>
+            <div class="category"></div>
+            <div class="category"></div>
           </div>
         </div>
+
         <div class="comparison-btn-container">
-          <button class="compare-btn">Compare</button>
+          <button id="compare-button" class="compare-btn">Compare</button>
         </div>
-        <div class="col-right col compare-column">
+
+        <!-- Right Column -->
+        <div class="col-right col search-column">
           <div class="profile-thumbnail"></div>
           <ul id="second-search-ul" class="profile-attributes"></ul>
         </div>

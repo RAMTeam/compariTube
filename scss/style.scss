@@ -121,38 +121,44 @@ img {
       font-size: 36px;
       text-align: center;
     }
-    .catagory {
-      .cat-item-title {
-        background: $secondary-background-color;
-        margin: 1rem 0 10px 0;
-        margin: 1rem 0 10px 0;
-        text-align: center;
-        width: 250px;
-        font-size: 24px;
-        color: $primary-font-color;
-        padding: 15px;
-      }
-      .cat-item-winner {
-        font-size: 18px;
-      }
-      // background: #202628;
+
+    .cat-item-title {
+      background: $secondary-background-color;
+      margin: 1rem 0 10px 0;
+      text-align: center;
+      width: 300px;
+      font-size: 24px;
+      color: $primary-font-color;
+      padding: 15px;
+    }
+    .cat-item-winner {
+      padding: 10px;
+      // color: #000 !important;
+      font-size: 18px;
     }
   }
-
-  .profile-item {
-    margin: 20px;
-    font-size: $primary-font-size;
-    font-family: $kurale;
+  .profile-thumbnail {
+    margin: 2rem;
+  }
+  .profile-attributes {
+    margin: 1rem;
     .profile-heading {
-      padding: 3px;
+      margin: 1rem;
+      padding: 10px;
       font-size: $subheading-font-size;
       font-weight: bold;
+      color: #72bed8;
+    }
+    .profile-item {
+      margin: 20px;
+      color: $primary-font-color;
+      font-size: $primary-font-size;
+      font-family: $kurale;
     }
   }
   .comparison-btn-container {
-    // display: hidden;
     position: absolute;
-    display: none;
+
     transform: translate(-50%);
     top: 50%;
     left: 50%;
@@ -168,29 +174,6 @@ img {
     transition: all 0.3s;
     &:hover {
       transform: scale(1.1);
-    }
-  }
-  .winner-looser {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    .winner {
-      position: relative;
-      margin-top: 130px;
-      width: 120px;
-      height: 30px;
-      border-radius: 15px;
-      margin: 5px;
-      background-color: #09c9b2;
-    }
-    .looser {
-      width: 120px;
-      height: 30px;
-      border-radius: 15px;
-      margin: 5px;
-      background-color: #fe9800;
     }
   }
 }

@@ -1,11 +1,13 @@
-let key=""
+let key="AIzaSyCvRmFnKCPzyLQitWxWmwawyMlHwIXLS1A"
 let firstSearchUl=document.querySelector("#first-search-ul")
 let secondSearchUl=document.querySelector("#second-search-ul")
 let CompareDiv=document.getElementById("compare-column")
 let CompareButton=document.getElementById("compare-button")
 let firstForm=document.getElementById("first-search-form")
 let secondForm= document.getElementById("second-search-form")
-let compareResult=document.getElementById("compare-result")
+let compareResult = document.getElementById("compare-result")
+
+
 //let channel1   //channel1 json
 //let channel2   //channel2 json
 
@@ -14,13 +16,15 @@ let compareResult=document.getElementById("compare-result")
 //     button.textContent="Compare"
 //     CompareDiv.
 // }
+CompareDiv.style.visibility = "hidden"
 firstForm.addEventListener("submit",function(e){getSearchResult(e,firstSearchUl)})
 secondForm.addEventListener("submit",function(e){getSearchResult(e,secondSearchUl)})
-
 // get a search list using the form keywords
 function getSearchResult(event,targetUl){
     targetUl.dataset.itemChosen=false
-    compareResult.textContent=""
+    
+    
+    CompareDiv.style.visibility = "hidden"
     event.preventDefault(); 
     searchBar=event.target.querySelector('input[type=text]')
     if(searchBar.value!=''){
@@ -48,7 +52,10 @@ function filterUniqeChannels(searchList){
 
 function displaySearchResult(searchList,targetUl){
     //console.log(searchList)
-    targetUl.textContent=""
+    let thumbnail = targetUl.parentNode.querySelector(".profile-thumbnail")
+    thumbnail.innerHTML = ""
+    targetUl.textContent = ""
+    // targetUl.parentNode.textContent= ""
     for(item of searchList){
         let li = document.createElement('li')
         li.data=item.snippet.channelId
@@ -83,87 +90,101 @@ function getChannelData(channelId,targetUl){
 
 function displayChannelDetails(data,targetUl){
     targetUl.textContent=''
-    let li=document.createElement('li')
-
+    // let li=document.createElement('li')
+    let thumbnail = targetUl.parentNode.querySelector(".profile-thumbnail")
+   
     //create the image element
     let img=document.createElement('img')
     img.src=data.snippet.thumbnails.default.url
-    li.appendChild(img)
+    thumbnail.appendChild(img)
 
     //create the name headding
-    let name=document.createElement('h3')
+    let name=document.createElement('li')
     name.textContent=data.snippet.title
-    //name.classList.add("channel-name")
-    li.appendChild(name)
+    
+    targetUl.appendChild(name).classList.add("profile-heading")
+
 
     //create the video count heading 
-    let vidCount=document.createElement('h3')
-    vidCount.innerHTML=`<span class="profile-heading">Video Counts: </span>${data.statistics.videoCount}`
+    let vidCount=document.createElement('li')
+    vidCount.innerHTML = `<span class="profile-heading">Video Counts: </span>${data.statistics.videoCount}`
     //vidCount.classList.add("vidCount")
-    li.appendChild(vidCount)
+    targetUl.appendChild(vidCount).classList.add("profile-item")
 
-    let viewCount=document.createElement('h3')
+    let viewCount=document.createElement('li')
     viewCount.innerHTML=`<span class="profile-heading">View Count: </span>${data.statistics.viewCount}`
     //vidCount.classList.add("viewCount")
-    li.appendChild(viewCount)
+    targetUl.appendChild(viewCount).classList.add("profile-item")
 
-    let subCount=document.createElement('h3')
+    let subCount=document.createElement('li')
     if (data.statistics.subscriberCount){
     //subCount.classList.add("subCount")
-    subCount.innerHTML=`<span class="profile-heading">Sunscriber Count: </span>${data.statistics.subscriberCount}`
+    subCount.innerHTML=`<span class="profile-heading">Subscriber Count: </span>${data.statistics.subscriberCount}`
     }
     else{
         subCount.innerHTML=`<span class="profile-heading">Sunscribers Count: </span>Hidden`
-        targetUl.dataset.channel.statistics.subscriberCount=0
+        data=JSON.parse(targetUl.dataset.channel)
+        data.statistics.subscriberCount = 0
+        targetUl.dataset.channel=JSON.stringify(data)
+        
+        
     }
     
 
-    li.appendChild(subCount)
-    targetUl.appendChild(li)
+    targetUl.appendChild(subCount).classList.add("profile-item")
+    // targetUl.appendChild(li)
 }
 
 
 CompareButton.addEventListener('click',getCompare)
 
 function getCompare(){
-    compareResult.textContent=""
- if(firstSearchUl.dataset.itemChosen && secondSearchUl.dataset.itemChosen) {
-     displayCompare()
-  }  
- else{
-    compareResult.textContent="Please, Choose two channels from both sides"
- }
+    //compareResult.innerText = ""
+    if(firstSearchUl.dataset.itemChosen && secondSearchUl.dataset.itemChosen) {
+        displayCompare()
+    }  
+    else{
+        compareResult.textContent="Please, Choose two channels from both sides"
+    }
 }
 
 function displayCompare(){
+    CompareDiv.style.visibility = "visible"
+    CompareButton.style.display = "none"
     let channel1=JSON.parse(firstSearchUl.dataset.channel)
     let channel2=JSON.parse(secondSearchUl.dataset.channel)
     console.log(channel1)
-   
+   let categoriesTags=compareResult.querySelectorAll('.category')
     //video count elements creation------------------------------
-    let videoLabel=document.createElement('div')
-    compareResult.appendChild(videoLabel)
+    let videoLabel=document.createElement('h4')
+    videoLabel.classList.add("cat-item-title")
+    categoriesTags[0].appendChild(videoLabel)
+    
     videoLabel.textContent="Video count"
 
     let winnerName1=document.createElement('p')
-    compareResult.appendChild(winnerName1)
+    categoriesTags[0].appendChild(winnerName1)
+    winnerName1.classList.add("cat-item-winner")
 
     //view count elements creation------------------------------
-    let viewLabel=document.createElement('div')
-    compareResult.appendChild(viewLabel)
-    viewLabel.textContent="View count"
+    let viewLabel=document.createElement('h4')
+    categoriesTags[1].appendChild(viewLabel)
+    viewLabel.textContent = "View count"
+    viewLabel.classList.add("cat-item-title")
 
     let winnerName2=document.createElement('p')
-    compareResult.appendChild(winnerName2)
+    categoriesTags[1].appendChild(winnerName2)
+    winnerName2.classList.add("cat-item-winner")
 
     //subscriber elements creation------------------------------
-    let subLabel=document.createElement('div')
-    compareResult.appendChild(subLabel)
-    subLabel.textContent="Subscriber count"
+    let subLabel=document.createElement('p')
+    subLabel.textContent = "Subscriber count"
+    categoriesTags[2].appendChild(subLabel)
+    subLabel.classList.add("cat-item-title")
 
     let winnerName3=document.createElement('p')
-    compareResult.appendChild(winnerName3)
-
+    categoriesTags[2].appendChild(winnerName3)
+    winnerName3.classList.add("cat-item-winner")
     //let labels=[videoLabel,viewLabel,subLabel]
 
     //video count comparison

@@ -30,8 +30,9 @@ firstForm.addEventListener("submit",function(e){getSearchResult(e,firstSearchUl)
 secondForm.addEventListener("submit",function(e){getSearchResult(e,secondSearchUl)})
 // get a search list using the form keywords
 function getSearchResult(event,targetUl){
-    targetUl.dataset.itemChosen=false
- 
+   
+    targetUl.dataset.itemChosen = false
+
     CompareDiv.style.visibility = "hidden"
     emptyCategoryTags()
     event.preventDefault(); 

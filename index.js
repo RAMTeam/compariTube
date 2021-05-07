@@ -6,7 +6,8 @@ let CompareButton=document.getElementById("compare-button")
 let firstForm=document.getElementById("first-search-form")
 let secondForm= document.getElementById("second-search-form")
 let compareResult = document.getElementById("compare-result")
-
+secondSearchUl.dataset.itemChosen=false
+firstSearchUl.dataset.itemChosen=false
 
 //let channel1   //channel1 json
 //let channel2   //channel2 json
@@ -22,8 +23,7 @@ secondForm.addEventListener("submit",function(e){getSearchResult(e,secondSearchU
 // get a search list using the form keywords
 function getSearchResult(event,targetUl){
     targetUl.dataset.itemChosen=false
-    
-    
+ 
     CompareDiv.style.visibility = "hidden"
     event.preventDefault(); 
     searchBar=event.target.querySelector('input[type=text]')
@@ -55,7 +55,12 @@ function displaySearchResult(searchList,targetUl){
     let thumbnail = targetUl.parentNode.querySelector(".profile-thumbnail")
     thumbnail.innerHTML = ""
     targetUl.textContent = ""
-    
+
+    CompareButton.style.display="block"
+    CompareDiv.style.visibility="hidden"
+
+    // targetUl.parentNode.textContent= ""
+
     for(item of searchList){
         let li = document.createElement('li')
         li.classList.add("thumbnails-list")
@@ -142,21 +147,33 @@ CompareButton.addEventListener('click',getCompare)
 
 function getCompare(){
     //compareResult.innerText = ""
-    if(firstSearchUl.dataset.itemChosen && secondSearchUl.dataset.itemChosen) {
+    CompareDiv.style.visibility = "visible"
+    console.log(firstSearchUl.dataset.itemChosen)
+    console.log(secondSearchUl.dataset.itemChosen)
+    if(firstSearchUl.dataset.itemChosen!="false" && secondSearchUl.dataset.itemChosen!="false") {
         displayCompare()
     }  
     else{
-        compareResult.textContent="Please, Choose two channels from both sides"
+        let warning=document.createElement("p")
+        warning.textContent="Please, Choose two channels from both sides"
+        compareResult.appendChild(warning)
+        warning.classList.add("warning")
     }
 }
 
 function displayCompare(){
     CompareDiv.style.visibility = "visible"
     CompareButton.style.display = "none"
-    let channel1=JSON.parse(firstSearchUl.dataset.channel)
-    let channel2=JSON.parse(secondSearchUl.dataset.channel)
-    console.log(channel1)
-   let categoriesTags=compareResult.querySelectorAll('.category')
+    console.log(typeof firstSearchUl.dataset.itemChosen)
+        let channel1=JSON.parse(firstSearchUl.dataset.channel)
+        let channel2=JSON.parse(secondSearchUl.dataset.channel)
+        console.log("heeeeey")
+
+    let categoriesTags=compareResult.querySelectorAll('.category')
+
+    let header=document.createElement('h2')
+    header.textContent="winning stats"
+    header.classList.add("winning-stats-heading")
     //video count elements creation------------------------------
     let videoLabel=document.createElement('h4')
     videoLabel.classList.add("cat-item-title")
@@ -222,3 +239,4 @@ function displayCompare(){
         winnerName3.textContent="Equal"
     }
 }
+

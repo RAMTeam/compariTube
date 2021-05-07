@@ -90,11 +90,11 @@ img {
 }
 
 .column-container {
-  display: grid;
+  display: flex;
   width: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  justify-items: center;
+
+  align-items: flex-start;
+  justify-content: space-around;
 
   .col {
     padding: 10px;
@@ -137,6 +137,19 @@ img {
       font-size: 18px;
     }
   }
+  .thumbnails-list {
+    display: flex;
+    margin: 0.5rem;
+    border: 2px solid #72bed8;
+    box-shadow: inset 2px 2px 11px 2px #0000;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .profiles-names {
+    padding: 10px;
+  }
   .profile-thumbnail {
     margin: 2rem;
   }
@@ -158,7 +171,7 @@ img {
   }
   .comparison-btn-container {
     position: absolute;
-
+    z-index: 10;
     transform: translate(-50%);
     top: 50%;
     left: 50%;

@@ -55,19 +55,23 @@ function displaySearchResult(searchList,targetUl){
     let thumbnail = targetUl.parentNode.querySelector(".profile-thumbnail")
     thumbnail.innerHTML = ""
     targetUl.textContent = ""
+
     CompareButton.style.display="block"
     CompareDiv.style.visibility="hidden"
 
     // targetUl.parentNode.textContent= ""
+
     for(item of searchList){
         let li = document.createElement('li')
+        li.classList.add("thumbnails-list")
         li.data=item.snippet.channelId
         
-
         let img=document.createElement('img')
+        img.classList.add("profile-thumbnail")
         img.src=item.snippet.thumbnails.default.url
         
-        let name=document.createElement('h3')
+        let name = document.createElement('h3')
+        name.classList.add("profiles-names")
         name.textContent=item.snippet.channelTitle
 
         li.appendChild(img)

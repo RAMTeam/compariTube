@@ -4,22 +4,54 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-height: 100vh;
 }
 
 body {
+  max-width: 100vw;
+  
   background: $mainBackground-color;
   color: $primary-font-color;
   font-family: $montserrat-semi;
 }
+
 .container {
-  width: 100%;
-  height: 100vh;
+  display: grid;
+  height:100vh;
+  // position: relative;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap:10px;
+  grid-template-areas:'Left TopLeft Top TopRight Right'
+  'Left CenterLeft Center CenterRight Right'
+  'Left BottomLeft Bottom BottomRight Right';
+  // border:1px solid black;
+  @media only screen and (max-width: 1100px){
+    // width: 100vw;
+    // height:100%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:'Top'
+    'CenterLeft'
+    'BottomLeft'
+    'CenterRight'
+    'BottomRight'
+    'Bottom';
+      margin: 1rem;
+      gap:10px;
+      
+  }
 }
 .heading {
+  // border:1px solid green;
+  grid-area: Top;
   color: $primary-font-color;
   font-size: $heading-font-size;
   text-align: center;
-  margin: 3rem;
+  margin-top: 3rem;
+  @media only screen and (max-width: 1100px){
+    font-size: 3rem;
+  }
 }
 li {
   text-decoration: none;
@@ -31,12 +63,31 @@ img {
   border-radius: 50%;
 }
 
-.searchBars {
-  margin: 10rem 0 10rem 0;
-  position: relative;
+
+.searchBarLeft{
+  grid-area: CenterLeft;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 1100px){
+    // height:5rem;
+    margin-top: 3rem;
+    margin-bottom: -1rem;
+  }
+}
+.searchBarRight{
+  
+  grid-area: CenterRight;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 1100px){
+    // height:5rem;
+    margin-top: 3rem;
+    margin-bottom: -1rem;
+  }
 }
 .search {
   width: 420px;
@@ -45,6 +96,7 @@ img {
   border-radius: 15px;
   position: relative;
   transition: all 0.5s ease;
+
 }
 
 .search-box {
@@ -58,9 +110,11 @@ img {
   padding: 20px 100px 20px 45px;
   font-size: 26px;
   outline: none;
+  
 }
 
 .search-button {
+  
   width: 100px;
   height: 60px;
   background-color: $secondary-background-color;
@@ -77,7 +131,9 @@ img {
   .search-button:hover {
     box-shadow: inset 2px 2px 11px 2px $search-button-accent-color;
   }
+
   .fa-search {
+    
     height: 100%;
     width: 100%;
     text-align: center;
@@ -89,31 +145,42 @@ img {
   }
 }
 
-.column-container {
-  display: flex;
-  width: 100%;
-
-  align-items: flex-start;
-  justify-content: space-around;
-
-  .col {
-    padding: 10px;
-    background-color: $secondary-background-color;
-    border-radius: 15px;
-    width: 450px;
-    min-height: 300px;
+.leftResultBox{
+  grid-area: BottomLeft;
+  height:fit-content;
+  // width: 80vw;
+  @media only screen and (max-width: 1100px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
+}
+.rightResultBox{
+  grid-area: BottomRight;
+  height:fit-content;
+  @media only screen and (max-width: 1100px){
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+}
 
+
+
+  
   .col-mid {
-    position: relative;
+    grid-area: Bottom;
+    // position: relative;
     width: 450px;
     display: flex;
     flex-direction: column;
     justify-self: center;
     align-items: center;
-    // visibility: hidden;
+    visibility: hidden;
     text-align: center;
-    background-color: #72bed8;
+
     .winning-stats-heading {
       margin-bottom: 2rem;
       display: flex;
@@ -136,6 +203,22 @@ img {
       padding: 10px;
       // color: #000 !important;
       font-size: 18px;
+    }
+    @media only screen and (max-width: 1100px){
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  #compare-result{
+    @media only screen and (max-width: 1100px){
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
   }
   // .warning {
@@ -181,11 +264,20 @@ img {
     }
   }
   .comparison-btn-container {
-    position: absolute;
-    z-index: 10;
-    transform: translate(-50%);
-    top: 50%;
-    left: 50%;
+    grid-area: Bottom;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (max-width: 1100px){
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+    }
+    
   }
   .compare-btn {
     width: 350px;
@@ -200,4 +292,4 @@ img {
       transform: scale(1.1);
     }
   }
-}
+

@@ -25,7 +25,8 @@
     <div class="container">
       <h2 class="heading">CompariTube</h2>
       <!-- Search Bars -->
-      <div class="searchBars">
+
+      <div class="searchBarLeft">
         <!-- First Search Bar -->
         <div class="search search-column">
           <form id="first-search-form">
@@ -35,7 +36,9 @@
             </button>
           </form>
         </div>
+      </div>
 
+      <div class="searchBarRight">
         <!-- Second Search Bar -->
         <div class="search search-column">
           <form id="second-search-form">
@@ -48,14 +51,17 @@
       </div>
 
       <!-- Left Column -->
-      <div class="column-container">
-        <div class="col-left col search-column">
-          <div class="profile-thumbnail"></div>
-          <ul id="first-search-ul" class="profile-attributes"></ul>
+      <!-- <div class="column-container"> -->
+        <div class="leftResultBox">
+
+          <div class="col-left col search-column ">
+            <div class="profile-thumbnail"></div>
+            <ul id="first-search-ul" class="profile-attributes"></ul>
+          </div>
         </div>
 
         <!-- Middle column -->
-        <div class="col-mid col compare-column" id="compare-column">
+        <div class=" col-mid compare-column" id="compare-column">
           <!-- <h2 class="winning-stats-heading">Winning Stats</h2> -->
 
           <div id="compare-result">
@@ -65,17 +71,21 @@
             <div class="category"></div>
           </div>
         </div>
+
+
         <div class="comparison-btn-container">
           <button id="compare-button" class="compare-btn">Compare</button>
         </div>
 
         <!-- Right Column -->
-        <div class="col-right col search-column">
-          <div class="profile-thumbnail"></div>
-          <ul id="second-search-ul" class="profile-attributes"></ul>
+        <div class="rightResultBox">
+          <div class="col-right col search-column ">
+            <div class="profile-thumbnail"></div>
+            <ul id="second-search-ul" class="profile-attributes"></ul>
+          </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
     <script src="index.js"></script>
   </body>
